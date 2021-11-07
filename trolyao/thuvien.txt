@@ -1,0 +1,264 @@
+1. Thư viện wikipedia
+https://www.geeksforgeeks.org/wikipedia-module-in-python/
+https://wikipedia.readthedocs.io/en/latest/code.html
+https://stackabuse.com/getting-started-with-pythons-wikipedia-api
+
++ Lấy thông tin ra từ wikipedia 
+	(dùng wikipedia.sumary(nội dung tìm kiếm,sentences) #sentences: nghĩa là số dòng
+ex: 
+# importing the module
+import wikipedia 
+  
+# finding result for the search
+# sentences = 2 refers to numbers of line
+result = wikipedia.summary("India", sentences = 2) 
+  
+# printing the result
+print(result) 
+
++Trả về danh sách các tiêu đề mà bạn có thể tìm kiếm
+	(dùng wikipedia.search(tên tiêu đề,results) #results: số lượng kết quả
+# importing the module
+import wikipedia
+
+# getting suggestions
+result = wikipedia.search("Geek", results = 5)
+
+# printing the result
+print(result)
+#kết quả 
+['Geek', 'Geek!', 'Freaks and Geeks', 'The Geek', 'Geek show']
+
++Lấy nội dung, danh mục tọa độ của trang wikipedia 
+	(dùng wikipedia.page(tên tiêu đề))# importing the module
+import wikipedia
+  
+# wikipedia page object is created
+page_object = wikipedia.page("india")
+  
+# printing html of page_object
+print(page_object.html)
+  
+# printing title
+print(page_object.original_title)
+  
+# printing links on that page object
+print(page_object.links[0:10])
+
+Output :
+“bound method WikipediaPage.html of “WikipediaPage ‘India'”>
+India
+[‘.in’, ’10th BRICS summit’, ’11th BRICS summit’, ’12th BRICS summit’, 
+’17th SAARC summit’, ’18th SAARC summit’, ‘1951 Asian Games’, 
+‘1957 Indian general election’, ‘1962 Indian general election’, 
+‘1982 Asian Games’]
+
++Thay đổi ngôn ngữ tìm kiếm 
+	(dùng wikipedia.set_lang(ngôn ngữ muốn đổi))
+# importing the module
+import wikipedia
+
+# setting language to hindi(đổi thành ngôn ngữ Ấn Độ)
+wikipedia.set_lang("hi")
+
+# printing the summary
+print(wikipedia.summary("India"))
+https://www.it-swarm-vi.com/vi/python/trich-doan-dau-tien-tu-mot-bai-viet-wikipedia-python/970097653/
+
+2. Thư viện os 
+https://viettuts.vn/python/mo-dun-os-trong-python
+https://python101.pythonlibrary.org/chapter16_os.html
+https://www.geeksforgeeks.org/python-os-system-method/
+https://vi.wikipedia.org/wiki/C%C3%A2u_l%E1%BB%87nh_shell
+https://quantrimang.com/shell-la-gi-156606
+https://stackabuse.com/executing-shell-commands-with-python
+
+Lệnh gọi os.system thường chặn trình gọi của nó cho đến khi chương trình sinh sản thoát ra;
+
+a. Hàm os.name
+Hàm này cung cấp tên của Module os được import.
+
+Hiện tại, nó đăng ký 'posix', 'nt', 'os2', 'ce', 'java' và 'riscos'. Ví dụ:
+
+1.import os
+2.print(os.name) 
+
+Kết quả:
+nt
+
+b. Hàm os.getcwd() 
+Nó trả về thư mục làm việc hiện tại (CWD) của tệp.
+import os
+print(os.getcwd())
+Kết quả:
+
+E:\Python\workspace\py-test1\src\main
+
+c.Hàm os.open()
+Hàm này mở một tệp đến hoặc từ lệnh được chỉ định và nó trả về một đối tượng tệp được kết nối với một pipe.
+
+import os
+fd = "python.txt"
+ 
+# popen() là tương đương với open()
+file = open(fd, 'w')
+file.write("Hello Python!")
+file.close()
+file = open(fd, 'r')
+text = file.read()
+print(text)
+ 
+# popen() cung cấp cổng kết nối và truy cập file trực tiếp
+file = os.popen(fd, 'w')
+file.write("Hello Python!")
+
+Kết quả:
+
+Hello Python!
+
+d. Hàm os.close()
+Hàm này dùng để đóng file.
+
+e.Hàm os.remove()
+Hàm này xóa file
+https://www.geeksforgeeks.org/os-module-python-examples/
+
+3. Thư viện playsound
+mở 1 file nhạc(file mp3) trong python 
+https://www.geeksforgeeks.org/play-sound-in-python/
+
+4. Thư viện gtts 
+https://www.geeksforgeeks.org/convert-text-speech-python/
+
+# Import the required module for text 
+# to speech conversion
+from gtts import gTTS
+  
+# This module is imported so that we can 
+# play the converted audio
+import os
+  
+# The text that you want to convert to audio
+mytext = 'Welcome to geeksforgeeks!'
+  
+# Language in which you want to convert
+language = 'en'
+  
+# Passing the text and language to the engine, 
+# here we have marked slow=False. Which tells 
+# the module that the converted audio should 
+# have a high speed
+myobj = gTTS(text=mytext, lang=language, slow=False)
+  
+# Saving the converted audio in a mp3 file named
+# welcome 
+myobj.save("welcome.mp3")
+  
+# Playing the converted file
+os.system("mpg321 welcome.mp3")
+
+gtts.readthedocs.io/en/latest/module.html#module-gtts.tts
+
+5. Thư viện sys(Thư viện xử lý ngoại lệ - try...except...)
+https://quantrimang.com/xu-ly-ngoai-le-exception-handling-trong-python-160188
+
+6. Thư viện speech_recognition:
+https://www.geeksforgeeks.org/speech-recognition-in-python-using-google-speech-api/
+https://www.geeksforgeeks.org/python-convert-speech-to-text-and-text-to-speech/
+https://realpython.com/python-speech-recognition/
+7. Thư viện re
+quantrimang.com/regex-trong-python-165471
+search(pattern, string, flags)
+Phương thức này thực hiện tìm kiếm chuỗi so khớp trên string và nó sẽ trả về các giá trị được so khớp.
+
+Trong đó:
+
+pattern là chuỗi regular expression.
+string là chuỗi cần so khớp.
+flags là các kiểu so khớp mà bạn muốn thực hiện (xem ở dưới). Nếu để trống thì flags sẽ bằng 0.
+VD:
+
+import re
+
+str = 'Hoc lap trinh Toidicode.com'
+match = re.search(r'Toidicode.com', str)
+if match: #nếu tồn tại chuỗi khớp                     
+    print (match.group()) # in ra chuỗi đó
+else:
+    print ('Khong tim thay!') # Không thì hiện thông báo
+#Kết quả:
+#Toidicode.com
+
+group(num)
+Phương thức này trả về các giá trị so khớp giữa biểu thức chính quy và chuỗi cần so. Trong đó thì num này là vị trí index của list so khớp trả về mà bạn muốn lấy ra. Nếu không điền thì Python sẽ coi nó là 0.
+
+VD:
+
+import re
+
+str = 'Học lập trình Toidicode.com'
+match = re.search(r'Toidicode.com', str)
+if match: #nếu tồn tại chuỗi khớp                     
+    print (match.group()) # in ra chuỗi đó
+else:
+    print ('Khong tim thay!') # Không thì hiện thông báo
+#Kết quả:
+#Toidicode.com
+
+8. Thư viện urllib.request (giống urllib2) :
+tutorialspoint.com/accessing-the-internet-using-the-urllib-request-module-in-python	
+	-Dùng để truy cập và mở các URL, thường sử dụng giao thức HTTP
+	-Sử dụng chức năng urlopen để để mở và đọc dữ liệu hoặc mã nguồn của trang.
+	-urllib.request.urlretrive
+	Phương thức urlretrease sẽ sao chép một đối tượng mạng vào một tệp cục bộ. 
+	Tệp mà nó sao chép được đặt tên ngẫu nhiên và đi vào thư mục tạm thời 
+	trừ khi bạn sử dụng tham số thứ hai để urlretrieve nơi bạn thực sự có
+	 thể chỉ định nơi bạn muốn lưu tệp. 
+	Điều này sẽ giúp bạn tiết kiệm một bước và làm cho mã của 
+	bạn đơn giản hơn nhiều:
+https://helpex.vn/article/python-101-gioi-thieu-ve-urllib-5c6b7ee6ae03f61e2464ce52
+https://www.digistar.vn/http-la-gi-tim-hieu-ve-giao-thuc-http-va-https/
+9. Thư viện json: 
+https://codelearn.io/sharing/xu-ly-json-voi-python-nhu-the-nao
+10. Phương os.path.join():
+https://www.geeksforgeeks.org/python-os-path-join-method/
+11. Thư viện ctypes 
+ctype là foreign function library hay có thể hiểu là nơi để mình gọi các hàm từ các thư viện khác không thuộc về python.
+
+*Thông tin về CDLL, WinDLL, OleDLL
+https://docs.python.org/2/library/ctypes.html#loading-shared-libraries
+
+12. ctypes.windll.user32.SystemParametersInfoW(20,0,image,3)
+windll.user32: đọc file user32.dll trong window 
+SystemParametersInfoW:Truy xuất hoặc đặt giá trị của một trong các tham số trên toàn hệ thống. Chức năng này cũng có thể cập nhật hồ sơ người dùng trong khi thiết lập một tham số.
+
+20: SPI_SETDESKWALLPAPER là xét kích thước ảnh
+
+3: SPIF_UPDATEINIFILE
+Ghi cài đặt thông số toàn hệ thống mới vào hồ sơ người dùng.
+https://devblogs.microsoft.com/oldnewthing/20160721-00/?p=93925#:~:text=SPIF_UPDATEINIFILE,after%20updating%20the%20user%20profile.
+https://gist.github.com/ata4/381fa179a8cf9842c341cc390423f144
+
+13. Thư viện PyDictionary
+https://www.geeksforgeeks.org/pydictionary-module-in-python/
+
+14. Dinh nghia API
+15. Thư viện datetime
+https://stackabuse.com/converting-strings-to-datetime-in-python
+https://www.w3schools.com/python/python_datetime.asp
+https://www.geeksforgeeks.org/python-datetime-module-with-examples/
+16. url là gi
+
+17. Thư viện webbrowser 
+https://www.geeksforgeeks.org/python-launch-a-web-browser-using-webbrowser-module/
+https://elearning.wsldp.com/python3/python-open-web-browser/#:~:text=Python%20has%20a%20module%20called,browser%20with%20a%20given%20url.
+
+https://www.it-swarm-vi.com/vi/python/lam-cach-nao-de-ghi-du-lieu-json-vao-mot-tep/1069520665/
+
+18. Thư viện requests.  
+https://www.w3schools.com/python/module_requests.asp
+
+
+19. Nguyên lý hoạt động. 
+https://quantraai.com/xay-dung-tro-ly-ao-tieng-viet-bang-ngon-ngu-python-co-ban/
+ 

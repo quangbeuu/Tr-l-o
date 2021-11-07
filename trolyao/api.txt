@@ -1,0 +1,16 @@
+-API: (Application Programming Interface) : giao diện lập trình
+ứng dụng. 
+- giao diện bình thường là giao diện giữa phần mềm và người dùng 
+còn API là giao diện giữa phần mềm với phần mềm. 
+-> API là một cách để các phần mềm (hệ điều hành, ứng dụng, các 
+module trong hệ thống doanh nghiệp,...) giao tiếp với nhau. 
+	-Ví dụ: Hệ điều hành: API để đọc ghi file, kết nối internet
+		Di động     : API định vị, xem thời lượng pin,
+			      chơi nhạc. 
+		Web: API lấy dữ liệu tù Google Sheet, từ Facebook
+		hay Youtube, lấy số liệu corona. 
+*Tại sao dùng API
+	+Giúp các ứng dụng giao tiếp với nhau
+		+Sử dụng chức năng
+		+Trao đổi dữ liệu
+		+Bảo mật/Tái sử dụng 
